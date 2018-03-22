@@ -8,14 +8,14 @@ accel_frequency = 2
 accel_topic = 'accelerometer/data'
 
 write_data_client_name = 'write_data'
-data_dir = '/home/pi/internet_of_wheels/mqtt_test/data/'
+data_dir = '/home/pi/IoTProject/mqtt_test/data/'
 
 zip_data_client_name = 'zip_data'
-zipped_dir = '/home/pi/internet_of_wheels/mqtt_test/zipped_data/'
+zipped_dir = '/home/pi/IoTProject/mqtt_test/zipped_data/'
 
 system_time_client_name = 'set_system_time'
 
-test_accel_frequency_result = '/home/pi/internet_of_wheels/mqtt_test/tmp/test_accel_frequency_result.csv'
+test_accel_frequency_result = '/home/pi/IoTProject/mqtt_test/tmp/test_accel_frequency_result.csv'
 
 main_client_name = 'wheelchair'
 project_topic = 'samba/a/b/c/iow/sensor'
