@@ -9,12 +9,17 @@ def on_message(client, userdata, message):
     global gps_data
 
     time_now = datetime.now()
-    dir_name = time_now.replace(second=0, microsecond=0).strftime('%Y%m%d%H%M%S')
+    #dir_name = time_now.replace(minute=0, second=0, microsecond=0).strftime('%Y%m%d%H%M%S')
+    #dir_name = time_now.replace(second=0, microsecond=0).strftime('%Y%m%d%H%M%S')
+    dir_name = time_now.replace(microsecond=0).strftime('%Y%m%d%H%M%S')
+    
+    """
     dir_path = config.data_dir + dir_name + '/'
    
     if not os.path.exists(dir_path):
         os.mkdir(dir_path)
     print(dir_path)
+    """
 
     topics = str(message.topic)
     payload = str(message.payload.decode("utf-8"))
@@ -32,8 +37,8 @@ def on_message(client, userdata, message):
     #print(data)
     file_name = str(time_now)
 
-    with open(dir_path + file_name, 'a') as fd:
-        fd.write(data)
+    with open(config.data_dir + dir_name + '.csv', 'a') as fd:
+        fd.write(data + '\n')
 
 if __name__ == "__main__":
     #initializing MQTT client, connection and subscription

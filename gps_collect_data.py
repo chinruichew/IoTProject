@@ -61,7 +61,7 @@ def publish_gps_data_at_x_frequency(gpsd, time_block):
             try:
                 (gps_data, gps_time) = read_gps_data(gpsd)
                 publish(config.gps_topic, gps_data)
-		publish(config.gps_time_topic, gps_time)
+                publish(config.gps_time_topic, gps_time)
 
                 print(gps_data)
                 delay = time_block - (time.time() - start_time)
@@ -72,6 +72,7 @@ def publish_gps_data_at_x_frequency(gpsd, time_block):
 
 if __name__ == "__main__":
     os.system('sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock') #ensuring gpsd is pointed to the right USB GPS receiver
+    #os.system('sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock') #ensuring gpsd is pointed to the right USB GPS receiver
     gpsd = gps(mode=WATCH_ENABLE) #starting the stream of info
 
     #initializing MQTT client and connection

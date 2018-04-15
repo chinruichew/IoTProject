@@ -9,7 +9,11 @@ def connect_to_local_broker(client_name):
 def connect_to_external_broker(client_name, broker):
     global client
     client = mqtt.Client(client_name)
-    client.connect(broker)
+    client.tls_set(certfile="./smartbfa_srv.crt",
+               ca_certs="./smartbfa_ca.crt",
+               keyfile="./smartbfa_srv.key")
+    #client.connect(broker)
+    client.connect("smartbfa.com", 8883)
 
 def publish(topic, data):
     client.publish(topic, data) 

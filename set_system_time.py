@@ -15,8 +15,8 @@ def on_message(client, userdata, message):
     if (year_gps == year_now):
 	return
 
-    if (year_gps >= 2018):
-	os.system('sudo date --set \"' + str(time_gps) + '\"')
+    #if (year_gps >= 2018):
+	#os.system('sudo date --set \"' + str(time_gps) + '\"')
 
 if __name__ == "__main__":
     #initializing MQTT client, connection and subscription
